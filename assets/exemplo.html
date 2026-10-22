@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exemplo de comentários</title>
+    <style>
+      :root { --fundo: #f4f6f9; --cartao: #fff; --texto: #172b43; --linha: #e3e9ef; }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) { --fundo: #0f1b2a; --cartao: #16263a; --texto: #e6edf5; --linha: #24384f; }
+      }
+      :root[data-theme='dark'] { --fundo: #0f1b2a; --cartao: #16263a; --texto: #e6edf5; --linha: #24384f; }
+      body { margin: 0; padding: 24px 16px 96px; background: var(--fundo); color: var(--texto); font: 14px/1.45 system-ui, sans-serif; }
+      h1 { margin: 0 0 16px; font-size: 20px; }
+      .quadro { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+      .coluna { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--linha); border-radius: 10px; }
+      .coluna h2 { margin: 0; font-size: 14px; }
+      .cartao { padding: 10px 12px; border: 1px solid var(--linha); border-radius: 8px; background: var(--cartao); cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <h1 data-comment-target="Título da página">Pedidos</h1>
+    <div class="quadro">
+      <section class="coluna" data-comment-target="Coluna A fazer">
+        <h2>A fazer</h2>
+        <article class="cartao" data-comment-ref="1001" data-comment-target="Cartão 1001 · Empresa Alfa">
+          <b>1001</b><br />Empresa Alfa
+        </article>
+        <article class="cartao" data-comment-ref="1002" data-comment-target="Cartão 1002 · Empresa Beta">
+          <b>1002</b><br />Empresa Beta
+        </article>
+      </section>
+      <section class="coluna" data-comment-target="Coluna Enviados">
+        <h2>Enviados</h2>
+        <article class="cartao" data-comment-ref="1003" data-comment-target="Cartão 1003 · Empresa Gama">
+          <b>1003</b><br />Empresa Gama
+        </article>
+      </section>
+    </div>
+
+    <script src="comentarios.js"></script>
+    <script>
+      CaixaDeComentarios.iniciar({ titulo: 'Comentários do quadro' });
+    </script>
+  </body>
+</html>
